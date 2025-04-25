@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients - Patient Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Patient Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="patients.html" class="active">Patients</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="research.html">Best Practices</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div id="session-output" class="session-output"></div>
+        
+        <div class="page-header">
+            <h2>Patient Records</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by name or ID...">
+                <button onclick="searchPatients()">Search</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div id="patient-list">
+                <table id="patients-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Priority</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patients-table-body">
+                        <!-- Patient data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Patient Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Patient</h2>
+            <form id="edit-patient-form">
+                <input type="hidden" id="editPatientId">
+                
+                <div class="form-group">
+                    <label for="editPatientName">Patient Name:</label>
+                    <input type="text" id="editPatientName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editPatientAge">Age:</label>
+                    <input type="number" id="editPatientAge" min="0" max="120" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editPatientGender">Gender:</label>
+                    <select id="editPatientGender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editContactNumber">Contact Number:</label>
+                    <input type="tel" id="editContactNumber" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editMedicalHistory">Medical History:</label>
+                    <textarea id="editMedicalHistory" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editPriority">Priority:</label>
+                    <select id="editPriority" required>
+                        <option value="Normal">Normal</option>
+                        <option value="Critical">Critical</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- View Patient Modal -->
+    <div id="view-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeViewModal()">&times;</span>
+            <h2>Patient Details</h2>
+            <div id="patient-details">
+                <!-- Patient details will be populated here -->
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Patient Management System</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

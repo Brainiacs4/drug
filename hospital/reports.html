@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Patient Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Patient Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="patients.html">Patients</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="reports.html" class="active">Reports</a></li>
+                <li><a href="research.html">Best Practices</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div id="session-output" class="session-output"></div>
+        
+        <div class="page-header">
+            <h2>Reports Dashboard</h2>
+        </div>
+        
+        <div class="card">
+            <h2>Daily Appointment Report</h2>
+            <div class="form-group">
+                <label for="reportDate">Select Date:</label>
+                <input type="date" id="reportDate">
+            </div>
+            <button onclick="generateReport()">Generate Report</button>
+            
+            <div id="report-content" class="card" style="margin-top: 20px; display: none;">
+                <h3>Appointment Report</h3>
+                <div id="report-summary"></div>
+                <table id="report-table">
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Time</th>
+                            <th>Purpose</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody id="report-table-body">
+                        <!-- Report data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Patient Statistics</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Total Patients</h3>
+                    <p id="stat-total-patients">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Critical Cases</h3>
+                    <p id="stat-critical-patients">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Appointments This Week</h3>
+                    <p id="stat-weekly-appointments">0</p>
+                </div>
+            </div>
+            <div class="stats-chart">
+                <h3>Patient Age Distribution</h3>
+                <div id="age-distribution-chart" class="chart-container">
+                    <!-- Chart will be displayed here -->
+                    <div class="placeholder-chart">Chart visualization would be here</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Patient Management System</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

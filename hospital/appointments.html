@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - Patient Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Patient Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="patients.html">Patients</a></li>
+                <li><a href="appointments.html" class="active">Appointments</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="research.html">Best Practices</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div id="session-output" class="session-output"></div>
+        
+        <div class="page-header">
+            <h2>Appointment Management</h2>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>Book Appointment</h2>
+                <form id="book-appointment-form">
+                    <div class="form-group">
+                        <label for="appointmentPatientId">Patient:</label>
+                        <select id="appointmentPatientId" required>
+                            <option value="">Select Patient</option>
+                            <!-- Will be populated with JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentDate">Date:</label>
+                        <input type="date" id="appointmentDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentTime">Time:</label>
+                        <input type="time" id="appointmentTime" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentPurpose">Purpose:</label>
+                        <textarea id="appointmentPurpose" rows="3" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Book Appointment</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2>Upcoming Appointments</h2>
+                <button class="secondary-btn" onclick="viewTodaysAppointments()">View Today's Appointments</button>
+                <div id="appointment-list">
+                    <table id="appointments-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Purpose</th>
+                                <th>Priority</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appointments-table-body">
+                            <!-- Appointment data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Appointment Modal -->
+    <div id="edit-appointment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeEditAppointmentModal()">&times;</span>
+            <h2>Edit Appointment</h2>
+            <form id="edit-appointment-form">
+                <input type="hidden" id="editAppointmentId">
+                
+                <div class="form-group">
+                    <label for="editAppointmentPatientId">Patient:</label>
+                    <select id="editAppointmentPatientId" required disabled>
+                        <!-- Will be populated with JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editAppointmentDate">Date:</label>
+                    <input type="date" id="editAppointmentDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editAppointmentTime">Time:</label>
+                    <input type="time" id="editAppointmentTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editAppointmentPurpose">Purpose:</label>
+                    <textarea id="editAppointmentPurpose" rows="3" required></textarea>
+                </div>
+                
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Patient Management System</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

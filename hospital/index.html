@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Patient Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="patients.html">Patients</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="research.html">Best Practices</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div id="session-output" class="session-output"></div>
+        
+        <div class="dashboard">
+            <div class="card main-card">
+                <h2>Welcome to Patient Management System</h2>
+                <p>Use the navigation menu to access different features of the system.</p>
+                
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <h3>Total Patients</h3>
+                        <p id="total-patients">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Today's Appointments</h3>
+                        <p id="today-appointments">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Critical Cases</h3>
+                        <p id="critical-patients">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h2>Add New Patient</h2>
+                    <form id="add-patient-form">
+                        <div class="form-group">
+                            <label for="patientName">Patient Name:</label>
+                            <input type="text" id="patientName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="patientAge">Age:</label>
+                            <input type="number" id="patientAge" min="0" max="120" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="patientGender">Gender:</label>
+                            <select id="patientGender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number:</label>
+                            <input type="tel" id="contactNumber" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="medicalHistory">Medical History:</label>
+                            <textarea id="medicalHistory" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="priority">Priority:</label>
+                            <select id="priority" required>
+                                <option value="Normal">Normal</option>
+                                <option value="Critical">Critical</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit">Add Patient</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Patient Management System</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
